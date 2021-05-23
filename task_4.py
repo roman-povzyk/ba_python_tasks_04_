@@ -18,12 +18,15 @@ elif operation == '-':
 else:
     computer_answer = a * b
 
-user_answer = int(input(f'{a} {operation} {b} = '))
+user_answer = input(f'{a} {operation} {b} = ')
 
-if user_answer == computer_answer:
-    print(f'Так, {user_answer} — правильна відповідь!')
+while not user_answer.isdigit():
+    user_answer = input(f'Будь ласка, введіть відповідь: ')
+
+if int(user_answer) == computer_answer:
+    print(f'Так, {int(user_answer)} — правильна відповідь!')
 else:
-    if user_answer > computer_answer:
-        print(f'Вибачте, але ви помилися. Відповідь на {user_answer - computer_answer} менше.')
+    if int(user_answer) > computer_answer:
+        print(f'Вибачте, але ви помилилися. Відповідь на {int(user_answer) - computer_answer} менше.')
     else:
-        print(f'Вибачте, але ви помилися. Відповідь на {computer_answer - user_answer} більше.')
+        print(f'Вибачте, але ви помилилися. Відповідь на {computer_answer - int(user_answer)} більше.')

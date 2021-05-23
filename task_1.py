@@ -5,13 +5,20 @@
 
 import random
 
-user_number = int(input('Введіть число від 1 до 10: '))
+user_number = input('Введіть число від 1 до 10: ')
+
+while not user_number.isdigit():
+    user_number = input('Будь ласка, введіть ЧИСЛОМ від 1 до 10: ')
+
+while int(user_number) > 10 or int(user_number) < 1:
+    user_number = input('Введіть число САМЕ У ДІАПАЗОНІ від 1 до 10: ')
+
 computer_number = random.randint(1, 10)
 
-if user_number == computer_number:
+if int(user_number) == computer_number:
     print(f'Вітаю, ви вгадали! Це число {user_number}.')
 else:
-    if user_number > computer_number:
-        print(f'Вибачте, але ви не вгадали. Ваше число було на {user_number - computer_number} більше.')
+    if int(user_number) > computer_number:
+        print(f'Вибачте, але ви не вгадали. Ваше число було на {int(user_number) - computer_number} більше.')
     else:
-        print(f'Вибачте, але ви не вгадали. Ваше число було на {computer_number - user_number} менше.')
+        print(f'Вибачте, але ви не вгадали. Ваше число було на {computer_number - int(user_number)} менше.')
